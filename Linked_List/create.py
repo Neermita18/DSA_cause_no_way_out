@@ -34,13 +34,23 @@ class LinkedList:
         while current.next:
             current = current.next
         return current.value
-        
+    def get_values(self):
+        if self.head is None:
+            print(-1)
+        c = self.head
+        print("Linked List: ")
+        print(c.value)
+        while c.next:
+            c= c.next
+            print(c.value)
+     
 
 list= LinkedList()
 list.insert_front(8)
-print(list.head_value())
+print(list.head_value(),"\n\n")
 list.insert_front(9)
-print(list.head_value())
+print(list.head_value(),"\n\n")
 list.insert_back(10)
-print(list.get_last_value())
-print(list.head_value())
+print(list.get_last_value(),"\n\n")
+print(list.head_value(),"\n\n")
+list.get_values()

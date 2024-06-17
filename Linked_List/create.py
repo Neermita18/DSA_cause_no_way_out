@@ -10,6 +10,18 @@ class LinkedList:
         node= Node(value)
         node.next=self.head
         self.head=node
+    def insert_at_k(self, value, k):
+        node= Node(value)
+        if self.head is None:
+            self.head=node
+            return node
+        current= self.head
+        for _ in range(k-1):
+            current=current.next
+        node.next= current.next
+        current.next=node
+
+            
     def head_value(self):
         if self.head is None:
             return -1
@@ -53,4 +65,6 @@ print(list.head_value(),"\n\n")
 list.insert_back(10)
 print(list.get_last_value(),"\n\n")
 print(list.head_value(),"\n\n")
+list.get_values()
+list.insert_at_k(4,2)
 list.get_values()

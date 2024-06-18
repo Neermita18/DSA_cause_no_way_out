@@ -6,10 +6,12 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head=None
+        self.tail=None
     def insert_front(self, value):
         node= Node(value)
         node.next=self.head
         self.head=node
+        
     def insert_at_k(self, value, k):
         node= Node(value)
         if self.head is None:
@@ -27,6 +29,7 @@ class LinkedList:
             return -1
         else:
             return self.head.value
+        
     def insert_back(self, value):
         node= Node(value)
         if self.head is None:
@@ -37,6 +40,17 @@ class LinkedList:
         while c.next:
             c=c.next
         c.next= node
+        
+    def insert_optimal(self, value):
+        node= Node(value)
+        if self.head is None:
+            self.head= node
+            self.tail=node
+            return node
+        self.tail.next= node
+        self.tail=node
+        
+        
     def get_last_value(self):
         
         if self.head is None:
@@ -68,3 +82,7 @@ print(list.head_value(),"\n\n")
 list.get_values()
 list.insert_at_k(4,2)
 list.get_values()
+# list.insert_optimal(50)
+# list.get_values()
+# list.insert_optimal(49)
+# list.get_values()

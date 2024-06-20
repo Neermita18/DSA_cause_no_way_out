@@ -60,6 +60,17 @@ class LinkedList:
         while current.next:
             current = current.next
         return current.value
+    
+    def delete(self,value):
+        if self.head.value==value:
+            self.head= self.head.next
+            return self.head
+        c= self.head
+        while c.next:
+            if c.next.value==value:
+                c.next= c.next.next
+                return
+            c=c.next
     def get_values(self):
         if self.head is None:
             print(-1)
@@ -81,6 +92,8 @@ print(list.get_last_value(),"\n\n")
 print(list.head_value(),"\n\n")
 list.get_values()
 list.insert_at_k(4,2)
+list.get_values()
+list.delete(8)
 list.get_values()
 # list.insert_optimal(50)
 # list.get_values()
